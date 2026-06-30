@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CACAOPATÍA S.A.S. — Cacao del sur del Cauca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F6EEE3;
+    --cream-deep: #EFE2D2;
+    --cacao: #4A2F1E;
+    --cacao-soft: #6B4630;
+    --terracota: #B5612E;
+    --leaf: #6F8B4A;
+    --gold: #C9A876;
+    --max: 1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--cream);
+    color:var(--cacao);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    color:var(--cacao);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit;}
+
+  .container{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(246,238,227,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(74,47,30,0.08);
+  }
+  nav{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:18px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.35rem;
+    letter-spacing:0.01em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo svg{width:30px;height:30px;flex-shrink:0;}
+  nav ul{
+    display:flex;
+    gap:32px;
+    list-style:none;
+  }
+  nav ul li a{
+    font-size:0.92rem;
+    font-weight:500;
+    text-decoration:none;
+    color:var(--cacao-soft);
+    transition:color 0.2s;
+  }
+  nav ul li a:hover{color:var(--terracota);}
+  .nav-toggle{display:none;}
+
+  @media (max-width:760px){
+    nav ul{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(201,168,118,0.35), transparent 45%),
+      linear-gradient(160deg, var(--cream) 0%, var(--cream-deep) 100%);
+  }
+
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap:60px;
+    align-items:center;
+    padding-top:100px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.78rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--terracota);
+    font-weight:600;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:'';
+    display:block;
+    width:28px;height:1px;
+    background:var(--terracota);
+  }
+
+  .hero h1{
+    font-size:clamp(2.8rem, 6vw, 5.2rem);
+    font-weight:600;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--terracota);
+  }
+
+  .hero p.lead{
+    font-size:1.15rem;
+    color:var(--cacao-soft);
+    max-width:480px;
+    margin-bottom:36px;
+  }
+
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 30px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    transition:all 0.25s ease;
+    border:1.5px solid transparent;
+  }
+  .btn-primary{
+    background:var(--cacao);
+    color:var(--cream);
+  }
+  .btn-primary:hover{
+    background:var(--terracota);
+    transform:translateY(-2px);
+  }
+  .btn-ghost{
+    border-color:var(--cacao-soft);
+    color:var(--cacao);
+  }
+  .btn-ghost:hover{
+    background:var(--cacao);
+    color:var(--cream);
+    transform:translateY(-2px);
+  }
+
+  /* Hero illustration */
+  .hero-art{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:560px;
+  }
+  .pod-circle{
+    width:440px;height:440px;
+    border-radius:50%;
+    background:linear-gradient(150deg, var(--cacao) 0%, var(--terracota) 100%);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    box-shadow:0 40px 80px -30px rgba(74,47,30,0.45);
+  }
+  .pod-circle svg{
+    width:78%;
+    animation: float 7s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-14px) rotate(2deg);}
+  }
+  .orbit-leaf{
+    position:absolute;
+    opacity:0.5;
+  }
+  .orbit-leaf.l1{top:-20px; right:10px; width:90px;}
+  .orbit-leaf.l2{bottom:0; left:-40px; width:120px; transform:rotate(160deg);}
+
+  .scroll-cue{
+    position:absolute;
+    bottom:36px; left:50%;
+    transform:translateX(-50%);
+    z-index:3;
+    font-size:0.75rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--cacao-soft);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .scroll-cue .line{
+    width:1px;height:34px;
+    background:var(--cacao-soft);
+    animation: pulse-line 2s ease-in-out infinite;
+  }
+  @keyframes pulse-line{
+    0%,100%{transform:scaleY(1); opacity:0.4;}
+    50%{transform:scaleY(1.4); opacity:1;}
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; text-align:left;}
+    .hero-art{height:340px;}
+    .pod-circle{width:280px;height:280px;}
+  }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{
+    padding:110px 0;
+    position:relative;
+  }
+  .section-head{
+    max-width:640px;
+    margin-bottom:64px;
+  }
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{
+    font-size:clamp(2.1rem, 4vw, 3.2rem);
+    font-weight:600;
+  }
+  .section-head p{
+    color:var(--cacao-soft);
+    margin-top:16px;
+    font-size:1.05rem;
+  }
+
+  /* divider with leaf */
+  .leaf-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:50px 0;
+  }
+  .leaf-divider svg{
+    width:60px; height:60px;
+    color:var(--leaf);
+    opacity:0.55;
+  }
+
+  /* ---------- PROBLEM / SOLUTION ---------- */
+  .problem-section{
+    background:var(--cacao);
+    color:var(--cream);
+  }
+  .problem-section h2, .problem-section .eyebrow{color:var(--cream);}
+  .problem-section .eyebrow::before{background:var(--gold);}
+  .problem-section .section-head p{color:rgba(246,238,227,0.7);}
+
+  .ps-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  .ps-card{
+    background:rgba(246,238,227,0.05);
+    border:1px solid rgba(246,238,227,0.12);
+    border-radius:18px;
+    padding:38px;
+  }
+  .ps-card h3{
+    color:var(--cream);
+    font-size:1.5rem;
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .ps-card.problem h3::before{
+    content:'';
+    width:10px;height:10px;
+    border-radius:50%;
+    background:var(--terracota);
+    flex-shrink:0;
+  }
+  .ps-card.solution h3::before{
+    content:'';
+    width:10px;height:10px;
+    border-radius:50%;
+    background:var(--leaf);
+    flex-shrink:0;
+  }
+  .ps-card ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .ps-card li{
+    padding-left:24px;
+    position:relative;
+    color:rgba(246,238,227,0.85);
+    font-size:1rem;
+  }
+  .ps-card li::before{
+    content:'—';
+    position:absolute;
+    left:0;
+    color:var(--gold);
+  }
+
+  @media (max-width:800px){
+    .ps-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+  }
+  .about-img{
+    position:relative;
+    border-radius:24px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    background:linear-gradient(150deg, var(--gold), var(--terracota));
+  }
+  .about-img svg{
+    width:100%;height:100%;
+    position:absolute;
+    top:0;left:0;
+    opacity:0.18;
+  }
+  .about-img .badge{
+    position:absolute;
+    bottom:28px; left:28px;
+    background:var(--cream);
+    color:var(--cacao);
+    padding:18px 26px;
+    border-radius:16px;
+    font-family:'Fraunces', serif;
+    box-shadow:0 20px 40px -20px rgba(0,0,0,0.3);
+  }
+  .about-img .badge strong{display:block; font-size:1.8rem;}
+  .about-img .badge span{font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--cacao-soft);}
+
+  .about-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    margin-top:30px;
+  }
+  .about-list li{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+  }
+  .about-list .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.1rem;
+    color:var(--terracota);
+    flex-shrink:0;
+    width:36px;
+    height:36px;
+    border:1.5px solid var(--terracota);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .about-list p{margin:0; color:var(--cacao-soft);}
+  .about-list strong{color:var(--cacao); font-weight:600;}
+
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- LOCATION ---------- */
+  .location-section{
+    background:var(--cream-deep);
+  }
+  .loc-grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .loc-card{
+    background:var(--cacao);
+    border-radius:24px;
+    padding:46px;
+    color:var(--cream);
+  }
+  .loc-card h3{color:var(--cream); font-size:1.7rem; margin-bottom:8px;}
+  .loc-card .place{color:var(--gold); font-weight:600; margin-bottom:28px;}
+  .loc-tags{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .loc-tags div{
+    display:flex; gap:12px; align-items:flex-start;
+    color:rgba(246,238,227,0.85);
+    font-size:0.95rem;
+  }
+  .loc-tags svg{flex-shrink:0; width:20px; height:20px; color:var(--gold); margin-top:2px;}
+
+  .map-visual{
+    border-radius:24px;
+    aspect-ratio:4/3;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 38px, rgba(74,47,30,0.06) 38px 39px),
+      repeating-linear-gradient(0deg, transparent 0 38px, rgba(74,47,30,0.06) 38px 39px),
+      var(--cream);
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(74,47,30,0.1);
+  }
+  .map-route{
+    position:absolute;
+    width:78%; height:2px;
+    background:repeating-linear-gradient(90deg, var(--terracota) 0 12px, transparent 12px 22px);
+    top:55%; left:11%;
+    transform:rotate(-8deg);
+  }
+  .map-pin{
+    position:absolute;
+    width:46px;height:46px;
+    background:var(--terracota);
+    border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    top:42%; left:46%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 30px -10px rgba(181,97,46,0.6);
+  }
+  .map-pin::after{
+    content:'';
+    width:16px;height:16px;
+    background:var(--cream);
+    border-radius:50%;
+    transform:rotate(45deg);
+  }
+  .map-label{
+    position:absolute;
+    top:54%; left:50%;
+    transform:translateX(-10%);
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--cacao);
+    background:var(--cream);
+    padding:6px 16px;
+    border-radius:100px;
+    border:1px solid rgba(74,47,30,0.15);
+    white-space:nowrap;
+  }
+  .map-cities{
+    position:absolute;
+    bottom:24px; left:24px; right:24px;
+    display:flex;
+    justify-content:space-between;
+    font-size:0.8rem;
+    color:var(--cacao-soft);
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+  }
+
+  @media (max-width:900px){
+    .loc-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+  }
+  .service-card{
+    background:var(--cream);
+    border:1px solid rgba(74,47,30,0.1);
+    border-radius:20px;
+    padding:40px;
+    transition:transform 0.25s, box-shadow 0.25s;
+  }
+  .service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 24px 50px -28px rgba(74,47,30,0.35);
+  }
+  .service-card .icon{
+    width:54px; height:54px;
+    border-radius:14px;
+    background:var(--cream-deep);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:24px;
+    color:var(--terracota);
+  }
+  .service-card .icon svg{width:26px;height:26px;}
+  .service-card h3{font-size:1.35rem; margin-bottom:16px;}
+  .service-card ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .service-card li{
+    padding-left:20px;
+    position:relative;
+    color:var(--cacao-soft);
+    font-size:0.95rem;
+  }
+  .service-card li::before{
+    content:'';
+    position:absolute;
+    left:0; top:9px;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--leaf);
+  }
+
+  @media (max-width:800px){
+    .services-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing-section{
+    background:var(--cacao);
+    color:var(--cream);
+  }
+  .pricing-section .eyebrow{color:var(--cream);}
+  .pricing-section .eyebrow::before{background:var(--gold);}
+  .pricing-section .section-head h2{color:var(--cream);}
+  .pricing-section .section-head p{color:rgba(246,238,227,0.7);}
+
+  .price-flow{
+    display:grid;
+    grid-template-columns:1fr auto 1fr auto 1fr;
+    gap:24px;
+    align-items:center;
+    margin-bottom:60px;
+  }
+  .price-box{
+    background:rgba(246,238,227,0.06);
+    border:1px solid rgba(246,238,227,0.14);
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+  }
+  .price-box .label{
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .price-box .value{
+    font-family:'Fraunces', serif;
+    font-size:1.7rem;
+    font-weight:600;
+  }
+  .price-box .sub{
+    font-size:0.85rem;
+    color:rgba(246,238,227,0.6);
+    margin-top:6px;
+  }
+  .price-arrow{
+    color:var(--gold);
+    font-size:1.6rem;
+    text-align:center;
+  }
+
+  @media (max-width:850px){
+    .price-flow{grid-template-columns:1fr;}
+    .price-arrow{transform:rotate(90deg);}
+  }
+
+  .margin-strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    border-top:1px solid rgba(246,238,227,0.14);
+    padding-top:40px;
+  }
+  .margin-item{text-align:center;}
+  .margin-item .num{
+    font-family:'Fraunces', serif;
+    font-size:2.4rem;
+    font-weight:600;
+    color:var(--gold);
+  }
+  .margin-item .desc{
+    font-size:0.9rem;
+    color:rgba(246,238,227,0.7);
+    margin-top:6px;
+  }
+  @media (max-width:700px){
+    .margin-strip{grid-template-columns:1fr;}
+  }
+
+  /* ---------- MARKET ---------- */
+  .market-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:50px;
+  }
+  .market-table{
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(74,47,30,0.1);
+  }
+  .market-table table{
+    width:100%;
+    border-collapse:collapse;
+  }
+  .market-table th{
+    background:var(--leaf);
+    color:var(--cream);
+    text-align:left;
+    padding:16px 22px;
+    font-weight:600;
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .market-table td{
+    padding:16px 22px;
+    font-size:0.95rem;
+    border-bottom:1px solid rgba(74,47,30,0.08);
+  }
+  .market-table tr:nth-child(even){background:var(--cream-deep);}
+  .market-table tr:last-child td{border-bottom:none;}
+
+  .market-side{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .pill-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .pill{
+    background:var(--cream-deep);
+    border:1px solid rgba(74,47,30,0.1);
+    color:var(--cacao-soft);
+    padding:8px 18px;
+    border-radius:100px;
+    font-size:0.88rem;
+    font-weight:500;
+  }
+  .market-side h4{
+    font-size:1rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--cacao-soft);
+    font-weight:600;
+    font-family:'Inter',sans-serif;
+  }
+  .stat-card{
+    background:var(--cacao);
+    color:var(--cream);
+    border-radius:20px;
+    padding:34px;
+    margin-top:auto;
+  }
+  .stat-card .big{
+    font-family:'Fraunces', serif;
+    font-size:3rem;
+    font-weight:600;
+    color:var(--gold);
+  }
+  .stat-card p{color:rgba(246,238,227,0.75); margin-top:10px; font-size:0.92rem;}
+
+  @media (max-width:900px){
+    .market-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- CONTACT / CTA ---------- */
+  .cta-section{
+    background:linear-gradient(150deg, var(--cream-deep), var(--cream));
+    text-align:center;
+  }
+  .cta-section h2{
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    max-width:760px;
+    margin:0 auto 24px;
+  }
+  .cta-section p{
+    color:var(--cacao-soft);
+    max-width:560px;
+    margin:0 auto 40px;
+    font-size:1.05rem;
+  }
+  .cta-section .btn-row{justify-content:center;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--cacao);
+    color:rgba(246,238,227,0.7);
+    padding:60px 0 36px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:50px;
+    margin-bottom:50px;
+  }
+  .footer-logo{
+    font-family:'Fraunces', serif;
+    color:var(--cream);
+    font-size:1.5rem;
+    font-weight:700;
+    margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .footer-logo svg{width:28px;height:28px;}
+  footer h4{
+    color:var(--cream);
+    font-size:0.85rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+  }
+  footer ul{list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.92rem;}
+  footer p.desc{max-width:340px; font-size:0.92rem; line-height:1.7;}
+  .footer-bottom{
+    border-top:1px solid rgba(246,238,227,0.12);
+    padding-top:26px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:0.82rem;
+  }
+
+  @media (max-width:800px){
+    .footer-grid{grid-template-columns:1fr; gap:36px;}
+  }
+
+  /* reveal animation */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+    .reveal{opacity:1; transform:none;}
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--terracota);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2c2.5 2.5 4 5.5 4 8.5a4 4 0 0 1-8 0C8 7.5 9.5 4.5 12 2Z"/>
+        <path d="M12 11v9"/>
+        <path d="M12 15c-2 0-4 1-5 3"/>
+        <path d="M12 13c2 0 4 1 5 3"/>
+      </svg>
+      CACAOPATÍA
+    </div>
+    <ul>
+      <li><a href="#empresa">Empresa</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#mercado">Mercado</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">El Bordo · Patía · Cauca</div>
+      <h1>El cacao del<br>sur del Cauca,<br><em>directo y justo.</em></h1>
+      <p class="lead">CACAOPATÍA S.A.S. compra, acopia y comercializa cacao directamente con productores de Patía, Mercaderes, Balboa y Argelia, conectándolos con empresas chocolateras a precios justos.</p>
+      <div class="btn-row">
+        <a href="#contacto" class="btn btn-primary">Vender mi cacao</a>
+        <a href="#servicios" class="btn btn-ghost">Soy empresa compradora</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="pod-circle">
+        <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 10C140 50 165 100 165 140C165 175 135 200 100 200C65 200 35 175 35 140C35 100 60 50 100 10Z" fill="#F6EEE3" opacity="0.95"/>
+          <path d="M100 25 L100 195" stroke="#B5612E" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+          <ellipse cx="80" cy="70" rx="13" ry="20" fill="#B5612E" opacity="0.35" transform="rotate(-20 80 70)"/>
+          <ellipse cx="122" cy="78" rx="13" ry="20" fill="#B5612E" opacity="0.35" transform="rotate(18 122 78)"/>
+          <ellipse cx="75" cy="118" rx="13" ry="20" fill="#B5612E" opacity="0.35" transform="rotate(-12 75 118)"/>
+          <ellipse cx="128" cy="124" rx="13" ry="20" fill="#B5612E" opacity="0.35" transform="rotate(14 128 124)"/>
+          <ellipse cx="100" cy="160" rx="13" ry="20" fill="#B5612E" opacity="0.35"/>
+        </svg>
+      </div>
+      <svg class="orbit-leaf l1" viewBox="0 0 100 100" fill="none" stroke="#6F8B4A" stroke-width="2">
+        <path d="M50 5 C70 25 80 50 50 95 C20 50 30 25 50 5Z"/>
+        <path d="M50 5 V95"/>
+      </svg>
+      <svg class="orbit-leaf l2" viewBox="0 0 100 100" fill="none" stroke="#4A2F1E" stroke-width="2">
+        <path d="M50 5 C70 25 80 50 50 95 C20 50 30 25 50 5Z"/>
+        <path d="M50 5 V95"/>
+      </svg>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Explorar</span><div class="line"></div></div>
+</section>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="problem-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">La situación</div>
+      <h2>Menos intermediarios,<br>más valor para el productor.</h2>
+      <p>Los cultivadores de cacao del sur del Cauca enfrentan un mercado que no los recompensa. Nosotros lo cambiamos.</p>
+    </div>
+    <div class="ps-grid">
+      <div class="ps-card problem reveal">
+        <h3>El problema</h3>
+        <ul>
+          <li>Los productores dependen de intermediarios para vender su cosecha.</li>
+          <li>Reciben precios bajos por su cacao.</li>
+          <li>No tienen acceso a compradores estables ni a contratos de largo plazo.</li>
+        </ul>
+      </div>
+      <div class="ps-card solution reveal">
+        <h3>Nuestra solución</h3>
+        <ul>
+          <li>Creación de CACAOPATÍA S.A.S. como centro de acopio local.</li>
+          <li>Compra directa a productores, sin intermediarios.</li>
+          <li>Comercialización con empresas chocolateras de Cali, Popayán, Bogotá y Medellín.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAF DIVIDER -->
+<div class="leaf-divider">
+  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M50 5 C75 28 88 55 50 95 C12 55 25 28 50 5Z"/>
+    <path d="M50 5 V95"/>
+    <path d="M50 30 L30 22"/>
+    <path d="M50 50 L70 42"/>
+    <path d="M50 70 L32 64"/>
+  </svg>
+</div>
+
+<!-- EMPRESA -->
+<section id="empresa">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#4A2F1E" stroke-width="0.6">
+          <path d="M50 2 C80 30 92 60 50 98 C8 60 20 30 50 2Z"/>
+          <path d="M50 2 V98"/>
+          <path d="M50 20 L25 10"/>
+          <path d="M50 40 L78 30"/>
+          <path d="M50 60 L22 52"/>
+          <path d="M50 80 L80 74"/>
+        </svg>
+        <div class="badge">
+          <strong>135</strong>
+          <span>Unidades económicas CIIU 4620 en el Cauca</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Quiénes somos</div>
+        <h2>Una empresa nacida<br>en El Bordo, Patía.</h2>
+        <p style="color:var(--cacao-soft); margin-top:16px; max-width:480px;">CACAOPATÍA S.A.S. es una empresa agroindustrial dedicada a la compra, acopio y comercialización de cacao, registrada bajo el código CIIU 4620 — comercio al por mayor de materias primas agropecuarias.</p>
+        <ul class="about-list">
+          <li>
+            <span class="num">01</span>
+            <p><strong>Acopio local.</strong> Compramos, acopiamos y comercializamos cacao directamente desde El Bordo.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <p><strong>Conexión directa.</strong> Vinculamos a productores del sur del Cauca con empresas chocolateras y comercializadoras.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <p><strong>Desarrollo rural.</strong> Promovemos precios justos y oportunidades para las familias cultivadoras de la región.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="location-section" id="ubicacion">
+  <div class="container">
+    <div class="loc-grid">
+      <div class="reveal">
+        <div class="eyebrow">Ubicación estratégica</div>
+        <h2>El Bordo, Patía<br>(Cauca)</h2>
+        <div class="loc-card" style="margin-top:32px;">
+          <h3>Por qué aquí</h3>
+          <div class="place">Sobre la vía Panamericana</div>
+          <div class="loc-tags">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+              Conexión directa por la vía Panamericana.
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              Cercanía a Popayán y Cali para entregas oportunas.
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8Z"/><circle cx="5.5" cy="18.5" r="1.5"/><circle cx="18.5" cy="18.5" r="1.5"/></svg>
+              Transporte fácil y eficiente del producto hacia los principales centros de consumo.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-visual reveal">
+        <div class="map-route"></div>
+        <div class="map-pin"></div>
+        <div class="map-label">El Bordo, Patía</div>
+        <div class="map-cities"><span>Popayán</span><span>Cali</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAF DIVIDER -->
+<div class="leaf-divider">
+  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M50 5 C75 28 88 55 50 95 C12 55 25 28 50 5Z"/>
+    <path d="M50 5 V95"/>
+    <path d="M50 30 L30 22"/>
+    <path d="M50 50 L70 42"/>
+    <path d="M50 70 L32 64"/>
+  </svg>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Lo que ofrecemos</div>
+      <h2>Servicios pensados para<br>cada lado de la cadena.</h2>
+      <p>Acompañamos al productor desde la cosecha y garantizamos a las empresas un suministro confiable y de calidad.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+        </div>
+        <h3>Para productores</h3>
+        <ul>
+          <li>Compra directa de cacao en finca o centro de acopio.</li>
+          <li>Pagos oportunos al momento de la entrega.</li>
+          <li>Almacenamiento adecuado del grano.</li>
+          <li>Asesoría básica en calidad y manejo poscosecha.</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        </div>
+        <h3>Para empresas</h3>
+        <ul>
+          <li>Suministro continuo de cacao de calidad.</li>
+          <li>Control de calidad en cada lote.</li>
+          <li>Entregas programadas según necesidad de producción.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MERCADO -->
+<section id="mercado" style="background:var(--cream-deep);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Mercado objetivo</div>
+      <h2>Una red entre el campo<br>y la industria chocolatera.</h2>
+      <p>Conectamos proveedores rurales del sur del Cauca con empresas transformadoras de cacao en las principales ciudades del país.</p>
+    </div>
+    <div class="market-grid">
+      <div class="reveal">
+        <div class="market-table">
+          <table>
+            <thead>
+              <tr><th>Variable</th><th>Detalle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Sector económico</td><td>Agroindustrial</td></tr>
+              <tr><td>Subsector</td><td>Comercialización de cacao</td></tr>
+              <tr><td>Cobertura geográfica</td><td>Sur del Cauca</td></tr>
+              <tr><td>Municipios objetivo</td><td>Patía, Mercaderes, Balboa y Argelia</td></tr>
+              <tr><td>Tipo de proveedor</td><td>Productores de cacao</td></tr>
+              <tr><td>Tipo de cliente</td><td>Empresas chocolateras y comercializadoras</td></tr>
+              <tr><td>Necesidad identificada</td><td>Falta de acceso a compradores estables y precios competitivos</td></tr>
+              <tr><td>Solución ofrecida</td><td>Centro de acopio y comercialización con alianzas empresariales</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="market-side reveal">
+        <h4>Proveedores</h4>
+        <div class="pill-group">
+          <span class="pill">Patía</span>
+          <span class="pill">Mercaderes</span>
+          <span class="pill">Balboa</span>
+          <span class="pill">Argelia</span>
+        </div>
+        <h4 style="margin-top:6px;">Clientes</h4>
+        <div class="pill-group">
+          <span class="pill">Empresas chocolateras</span>
+          <span class="pill">Comercializadoras de cacao</span>
+        </div>
+        <div class="stat-card">
+          <div class="big">25–70</div>
+          <p>Edad de los productores con quienes trabajamos: agricultores de pequeña y mediana explotación, de nivel socioeconómico bajo y medio, que buscan compradores confiables y pagos seguros.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAF DIVIDER -->
+<div class="leaf-divider">
+  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M50 5 C75 28 88 55 50 95 C12 55 25 28 50 5Z"/>
+    <path d="M50 5 V95"/>
+    <path d="M50 30 L30 22"/>
+    <path d="M50 50 L70 42"/>
+    <path d="M50 70 L32 64"/>
+  </svg>
+</div>
+
+<!-- PRECIOS -->
+<section class="pricing-section" id="precios">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Precios justos</div>
+      <h2>De la finca a la industria,<br>con un margen transparente.</h2>
+      <p>Pagamos por encima del intermediario local y trasladamos valor a toda la cadena.</p>
+    </div>
+
+    <div class="price-flow reveal">
+      <div class="price-box">
+        <div class="label">Precio de referencia</div>
+        <div class="value">$12.000 / kg</div>
+        <div class="sub">Precio nacional de referencia del cacao</div>
+      </div>
+      <div class="price-arrow">→</div>
+      <div class="price-box">
+        <div class="label">Compra a productores</div>
+        <div class="value">$12.000 – $12.500 / kg</div>
+        <div class="sub">5% a 10% más que los intermediarios locales</div>
+      </div>
+      <div class="price-arrow">→</div>
+      <div class="price-box">
+        <div class="label">Venta a empresas</div>
+        <div class="value">$13.500 – $14.000 / kg</div>
+        <div class="sub">Incluye transporte, almacenamiento, clasificación y operación</div>
+      </div>
+    </div>
+
+    <div class="margin-strip reveal">
+      <div class="margin-item">
+        <div class="num">+5–10%</div>
+        <div class="desc">Más pago a productores frente a intermediarios locales</div>
+      </div>
+      <div class="margin-item">
+        <div class="num">$1.000–$1.500</div>
+        <div class="desc">Margen por kg en la comercialización</div>
+      </div>
+      <div class="margin-item">
+        <div class="num">100%</div>
+        <div class="desc">Beneficio reinvertido en precios justos y desarrollo rural</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACTO -->
+<section class="cta-section" id="contacto">
+  <div class="container">
+    <div class="eyebrow" style="justify-content:center;">Hablemos</div>
+    <h2 class="reveal">¿Listo para vender o comprar cacao<br>del sur del Cauca?</h2>
+    <p class="reveal">Si eres productor de Patía, Mercaderes, Balboa o Argelia, o representas una empresa chocolatera, escríbenos y construyamos juntos una cadena más justa.</p>
+    <div class="btn-row reveal">
+      <a href="mailto:contacto@cacaopatia.co" class="btn btn-primary">contacto@cacaopatia.co</a>
+      <a href="#" class="btn btn-ghost">+57 300 000 0000</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c2.5 2.5 4 5.5 4 8.5a4 4 0 0 1-8 0C8 7.5 9.5 4.5 12 2Z"/>
+            <path d="M12 11v9"/>
+            <path d="M12 15c-2 0-4 1-5 3"/>
+            <path d="M12 13c2 0 4 1 5 3"/>
+          </svg>
+          CACAOPATÍA S.A.S.
+        </div>
+        <p class="desc">Empresa agroindustrial ubicada en El Bordo, Patía (Cauca), dedicada a la compra, acopio y comercialización de cacao del sur del Cauca con precios justos para el productor.</p>
+      </div>
+      <div>
+        <h4>Cobertura</h4>
+        <ul>
+          <li>Patía</li>
+          <li>Mercaderes</li>
+          <li>Balboa</li>
+          <li>Argelia</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#empresa">Empresa</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#mercado">Mercado</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CACAOPATÍA S.A.S. — El Bordo, Patía, Cauca</span>
+      <span>CIIU 4620 · Comercio al por mayor de materias primas agropecuarias</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  reveals.forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
